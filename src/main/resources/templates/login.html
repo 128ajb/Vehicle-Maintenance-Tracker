@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+</head>
+
+<body>
+
+<h1>Vehicle Maintenance Tracker</h1>
+
+<form th:action="@{/login}" method="post">
+
+    <p>Username</p>
+    <input type="text"
+           th:field="*{username}"
+           th:object="${user}">
+
+    <br><br>
+
+    <p>Password</p>
+    <input type="password"
+           th:field="*{password}"
+           th:object="${user}">
+
+    <br><br>
+
+    <button type="submit">Login</button>
+
+</form>
+
+<br>
+
+<a th:href="@{/register}">
+Create an Account
+</a>
+
+</body>
+</html>

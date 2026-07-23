@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.FinalProject.MaintenanceTracker.mapper.MaintenanceMapper">
+
+
+    <select id="findByUserId"
+            resultType="com.FinalProject.MaintenanceTracker.model.Maintenance">
+
+        SELECT
+            m.maintenance_id AS maintenanceId,
+            m.vin,
+            m.maintenance_type AS serviceType,
+            m.service_date AS serviceDate,
+            m.mileage,
+            m.cost,
+            m.notes
+
+        FROM "Maintenance" m
+
+        JOIN "Vehicles" v
+        ON m.vin = v.vin
+
+        WHERE v.user_id = #{userId}
+
+    </select>
+
+
+    <insert id="insert">
+
+        INSERT INTO "Maintenance"
+        (
+            vin,
+            maintenance_type,
+            service_date,
+            mileage,
+            cost,
+            notes
+        )
+
+        VALUES
+        (
+            #{vin},
+            #{serviceType},
+            #{serviceDate},
+            #{mileage},
+            #{cost},
+            #{notes}
+        )
+
+    </insert>
+<delete id="deleteMaintenance">
+    DELETE FROM "Maintenance"
+    WHERE maintenance_id = #{id}
+</delete>
+
+</mapper>

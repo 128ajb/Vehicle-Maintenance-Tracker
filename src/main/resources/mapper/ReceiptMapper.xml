@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.FinalProject.MaintenanceTracker.mapper.ReceiptMapper">
+
+
+<select id="findAll"
+resultType="com.FinalProject.MaintenanceTracker.model.Receipt">
+
+SELECT
+
+    receipt_id AS receiptId,
+    maintenance_id AS maintenanceId,
+    file_name AS fileName,
+    file_path AS filePath,
+    upload_date AS uploadDate
+
+FROM "Receipts"
+
+</select>
+
+
+
+<insert id="insert">
+
+INSERT INTO "Receipts"
+(
+    maintenance_id,
+    file_name,
+    file_path,
+    upload_date
+)
+
+VALUES
+(
+    #{maintenanceId},
+    #{fileName},
+    #{filePath},
+    #{uploadDate}
+)
+
+</insert>
+
+
+</mapper>

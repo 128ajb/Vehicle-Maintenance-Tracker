@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.FinalProject.MaintenanceTracker.mapper.VehicleMapper">
+
+<select id="findByUserId"
+resultType="com.FinalProject.MaintenanceTracker.model.Vehicle">
+
+SELECT
+    vin,
+    user_id AS userId,
+    vin,
+    make,
+    model,
+    year,
+    mileage
+
+FROM "Vehicles"
+
+WHERE user_id = #{userId}
+
+</select>
+
+    <insert id="insert">
+        INSERT INTO "Vehicles"
+        (user_id, year, make, model, mileage, vin)
+        VALUES
+        (#{userId}, #{year}, #{make}, #{model}, #{mileage}, #{vin})
+    </insert>
+    
+    <delete id="delete">
+    delete from "Vehicles" 
+    where vin = #{vin} </delete>
+
+</mapper>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Add Vehicle</title>
+</head>
+
+<body>
+
+<h1>Add a new vehicle</h1>
+
+<form action="/vehicles/save" method="post">
+
+	
+    <label>Year:</label>
+    <input type="number" name="year">
+    <br>
+
+    <label>Make:</label>
+    <input type="text" name="make">
+    <br>
+
+    <label>Model:</label>
+    <input type="text" name="model">
+    <br>
+
+    <label>Mileage:</label>
+    <input type="number" name="mileage">
+    <br>
+
+    <label>VIN:</label>
+    <input type="text" name="vin">
+    <br>
+
+    <button type="submit">Add Vehicle</button>
+
+</form>
+
+<a href="/vehicles">Back to Vehicles</a>
+
+</body>
+
+</html>

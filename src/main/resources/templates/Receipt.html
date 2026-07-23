@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Receipts</title>
+</head>
+
+<body>
+
+<h1>Receipts</h1>
+
+<a href="/receipts/add">
+    Add Receipt
+</a>
+
+<br><br>
+
+
+<table border="1">
+
+<tr>
+    <th>Receipt ID</th>
+    <th>Maintenance ID</th>
+    <th>File Name</th>
+    <th>File Path</th>
+    <th>Upload Date</th>
+</tr>
+
+
+<tr th:each="receipt : ${receipts}">
+
+    <td th:text="${receipt.receiptId}">
+    </td>
+
+    <td th:text="${receipt.maintenanceId}">
+    </td>
+
+    <td th:text="${receipt.fileName}">
+    </td>
+
+    <td th:text="${receipt.filePath}">
+    </td>
+
+    <td th:text="${receipt.uploadDate}">
+    </td>
+
+</tr>
+
+
+</table>
+
+
+</body>
+<a href="/"> Back Home </a>
+
+</html>

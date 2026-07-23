@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Maintenance</title>
+</head>
+
+
+<body>
+
+
+<h1>Maintenance Records</h1>
+
+
+<table border="1">
+
+<tr>
+    <th>ID</th>
+    <th>VIN</th>
+    <th>Service</th>
+    <th>Date</th>
+    <th>Mileage</th>
+    <th>Cost</th>
+    <th>Notes</th>
+    <th>Action</th>
+</tr>
+
+
+<tr th:each="maintenance : ${maintenanceList}">
+
+    <td th:text="${maintenance.maintenanceId}"></td>
+
+    <td th:text="${maintenance.vin}"></td>
+
+    <td th:text="${maintenance.serviceType}"></td>
+
+    <td th:text="${maintenance.serviceDate}"></td>
+
+    <td th:text="${maintenance.mileage}"></td>
+
+    <td th:text="${maintenance.cost}"></td>
+
+    <td th:text="${maintenance.notes}"></td>
+
+    <td>
+        <a th:href="@{/maintenance/delete/{id}(id=${maintenance.maintenanceId})}"
+           onclick="return confirm('Delete this maintenance record?')">
+            Delete
+        </a>
+    </td>
+
+</tr>
+
+</table>
+
+<a href="/maintenance/add">Add Vehicle Maintenance</a>]
+<a href = "/vehicles"> Return to vehicles</a>
+</body>
+</html>

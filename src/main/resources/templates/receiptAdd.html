@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Add Receipt</title>
+</head>
+
+
+<body>
+
+
+<h1>Add Receipt</h1>
+
+
+<form action="/receipts/save"
+      method="post"
+      th:object="${receipt}">
+
+
+    <label>
+        Maintenance ID:
+    </label>
+
+    <input type="number"
+           th:field="*{maintenanceId}">
+           
+    <br><br>
+
+
+
+    <label>
+        File Name:
+    </label>
+
+    <input type="text"
+           th:field="*{fileName}">
+           
+    <br><br>
+
+
+
+    <label>
+        File Path:
+    </label>
+
+    <input type="text"
+           th:field="*{filePath}">
+           
+    <br><br>
+
+
+
+    <label>
+        Upload Date:
+    </label>
+
+    <input type="text"
+           th:field="*{uploadDate}">
+           
+    <br><br>
+
+
+
+    <button type="submit">
+        Save Receipt
+    </button>
+
+
+</form>
+
+
+<br>
+
+<a href="/receipts">
+    Back to Receipts
+</a>
+<a href="/"> Back Home </a>
+
+</body>
+
+</html>

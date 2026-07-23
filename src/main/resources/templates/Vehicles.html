@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Vehicles</title>
+</head>
+
+<body>
+
+<h1>Your Vehicles</h1>
+
+<table border="1">
+
+<tr>
+    <th>Year</th>
+    <th>Make</th>
+    <th>Model</th>
+    <th>Mileage</th>
+    <th>VIN</th>
+</tr>
+
+<tr th:each="vehicle : ${vehicles}">
+    <td th:text="${vehicle.year}"></td>
+    <td th:text="${vehicle.make}"></td>
+    <td th:text="${vehicle.model}"></td>
+    <td th:text="${vehicle.mileage}"></td>
+    <td th:text="${vehicle.vin}"></td>
+	<td> 	<form action="/vehicles/delete" method="post"
+	      onsubmit="return confirm('Are you sure you want to delete this vehicle?');">
+
+	    <input type="hidden" name="vin" th:value="${vehicle.vin}">
+
+	    <button type="submit">
+	        Delete
+	    </button>
+
+	</form>
+	</td>
+</tr>
+
+
+</table>
+<a href="/vehicles/add">Add Vehicle</a>
+<a href="/maintenance"> View Maintenance </a>
+<a href = "/"> Log Out</a>
+
+
+</body>
+</html>
