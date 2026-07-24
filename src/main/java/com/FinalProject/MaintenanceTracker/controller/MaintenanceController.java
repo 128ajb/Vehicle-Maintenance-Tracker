@@ -30,7 +30,7 @@ public class MaintenanceController {
 
 
 
-    @GetMapping("/maintenance")
+    @GetMapping("/Maintenance")
     public String viewMaintenance(Model model, HttpSession session) {
 
         Integer userId = (Integer) session.getAttribute("userId");
@@ -40,10 +40,10 @@ public class MaintenanceController {
             maintenanceMapper.findByUserId(userId)
         );
 
-        return "maintenance";
+        return "Maintenance";
     }
 
-    @GetMapping("/maintenance/add")
+    @GetMapping("/Maintenance/add")
     public String addMaintenancePage(Model model, HttpSession session) {
 
         Integer userId = (Integer) session.getAttribute("userId");
@@ -55,22 +55,22 @@ public class MaintenanceController {
 
         return "addMaintenance";
     }
-    @GetMapping("/maintenance/delete/{id}")
+    @GetMapping("/Maintenance/delete/{id}")
     public String deleteMaintenance(@PathVariable("id") int id) {
 
         maintenanceMapper.deleteMaintenance(id);
 
-        return "redirect:/maintenance";
+        return "redirect:/Maintenance";
     }
 
-    @PostMapping("/maintenance/save")
+    @PostMapping("/Maintenance/save")
     public String saveMaintenance(
             Maintenance maintenance,
             HttpSession session) {
 
         maintenanceMapper.insert(maintenance);
 
-        return "redirect:/maintenance";
+        return "redirect:/Maintenance";
     }
     
 }

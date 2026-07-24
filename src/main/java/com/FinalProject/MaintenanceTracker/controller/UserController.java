@@ -40,7 +40,7 @@ public class UserController {
 
         session.setAttribute("userId", loggedIn.getUserId());
 
-        return "redirect:/vehicles";
+        return "redirect:/Vehicles";
     }
 
     @GetMapping("/register")
