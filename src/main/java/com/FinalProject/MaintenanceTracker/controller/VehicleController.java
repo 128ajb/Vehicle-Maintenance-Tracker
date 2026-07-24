@@ -24,7 +24,7 @@ public class VehicleController {
         this.vehicleMapper = vehicleMapper;
     }
 
-    @GetMapping("/vehicles")
+    @GetMapping("/Vehicles")
     public String viewVehicles(
             Model model,
             HttpSession session){
@@ -37,14 +37,14 @@ public class VehicleController {
 
         model.addAttribute("vehicles", vehicles);
 
-        return "vehicles";
+        return "Vehicles";
     }
 
-    @GetMapping("/vehicles/add")
+    @GetMapping("/Vehicles/add")
     public String addVehiclePage() {
         return "VehicleAdd";
     }
-    @PostMapping("/vehicles/save")
+    @PostMapping("/Vehicles/save")
     public String saveVehicle(
             @ModelAttribute Vehicle vehicle,
             HttpSession session){
@@ -55,15 +55,15 @@ public class VehicleController {
 
         vehicleMapper.insert(vehicle);
 
-        return "redirect:/vehicles";
+        return "redirect:/Vehicles";
     }
-    @PostMapping("/vehicles/delete")
+    @PostMapping("/Vehicles/delete")
     public String deleteVehicle(
             String vin,
             HttpSession session) {
 
         vehicleMapper.delete(vin);
 
-        return "redirect:/vehicles";
+        return "redirect:/Vehicles";
     }
 }
